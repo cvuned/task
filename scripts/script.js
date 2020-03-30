@@ -934,18 +934,15 @@ function pregInduccion(){
 
 
 function validaInduccion(){
-    if(
+  
+    if(document.querySelector('input[name="induccion1"]:checked')==null)
         // (document.querySelector('input[name="induccion1"]:checked')==null) || (document.querySelector('input[name="induccion2"]:checked')==null)
       // ) {
         // alert("Contesta las preguntas, por favor");
-        (document.querySelector('input[name="induccion1"]:checked')==null) || (document.querySelector('input[name="induccion2"]:checked')==null)
-      ) {
-        ocultar(divPregInduccion);
-        siguienteTexto();;    }
+		alert("Acepta el consentimiento para continuar");
     
     else{
         PregInduccion = document.querySelector('input[name="induccion1"]').value;
-        PregInduccionPrecio = document.querySelector('input[name="induccion2"]').value;
         ocultar(divPregInduccion);
         siguienteTexto();
     }
