@@ -1,0 +1,186 @@
+<html>
+
+	<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+		 <title>TFM-UNED</title>
+		 <link rel="stylesheet" type="text/css" href="css/style.css">
+		 <script type="text/javascript" src="scripts/script.js"></script>
+        
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+<script type="text/javascript" src="https://l2.io/ip.js?var=myip"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDtm1n6_GR44uEWRa87EVgbmHFSoQHE6vs",
+    authDomain: "cv-tareainvestigacion.firebaseapp.com",
+    databaseURL: "https://cv-tareainvestigacion.firebaseio.com",
+    projectId: "cv-tareainvestigacion",
+    storageBucket: "cv-tareainvestigacion.appspot.com",
+    messagingSenderId: "406655867757",
+    appId: "1:406655867757:web:894646059a20460dd25864"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+	
+	</head>
+	<body onload="arranca()">
+
+        <div id= "divContenedor">
+            <div id="divContenido">
+                <div id="divTextos">
+                    
+                </div>
+                
+                <div id="divContingencia">
+                    <div id="divRegistro" class="ContingenciasFadeIn">
+                        
+                        <br>
+                        <br>
+                    </div>
+                    <div id="divPreStatus" class="columnBig ContingenciasFadeIn">
+                        <img src="img/Nooutcome.png" width="250px">
+                        <br><br>
+                        <p class="mensaje">Este Paciente tiene una crisis.</p>
+                        <p class="mensaje">¿Quieres administrar Batatrim?</p>
+                    </div>
+                    <div id="divEleccion" class="columnSmall ContingenciasFadeIn">
+                        <div > 
+<!--                            <button id="botonYES" value="YES" class="botonEleccion" onclick='respuestaYES()'>
+                                <img src="img/BatatrimBoton.png" width=150px class="icon icon_hover" id="imagenYES">
+                            </button>
+                        </div>
+                        <div >
+                            <button id="botonNO" value="NO" class="botonEleccion" onclick='respuestaNO()'>
+                                <img src="img/noBatatrimBoton.png" width=150px  class="icon icon_hover" id="imagenNO">
+                            </button>-->                           
+                        </div>
+                    </div>
+                    <div id="divOutcome" class="columnBig ContingenciasFadeIn">
+                        <!--<img src="img/outcome.png" width=250px>
+                        <br><br>
+                        <p class="mensaje">¡El paciente se ha curado!</p>-->
+                    </div>
+                </div>
+                
+                <div id="divJuicio">
+                    <div id="divPregunta"></div>
+					
+					<!-- <div> -->
+                        <!-- <p align="left">Responde usando la siguiente escala, donde los números se interpretan así:</p> -->
+                        <!-- <ul> -->
+                        <!-- <li>0: Nada efectivo.</li> -->
+                        <!-- <li>50: Moderadamente efectivo.</li> -->
+                        <!-- <li>100: Perfectamente efectivo.</li> -->
+                        <!-- </ul> -->
+                        <!-- <p align="left">Puedes hacer clic dentro de la escala tantas veces como desees hasta marcar el valor que consideres más adecuado. Cualquier valor entre 0 y 100 es válido.</p><br><br> -->
+                    <!-- </div> -->
+                    
+				
+					<div class="wrapSeparadores">                
+                        <div class="separador1">0<br>|</div>
+                        <div class="separador2">50<br>|</div>
+                        <div class="separador3">100<br>|</div>
+	                </div>                            
+                    <div id="divSlider">
+                        <input type="range" class="sliderCONT" name="sliderJuicio" id="sliderJuicio" value="50" min="0" max="100" onchange="updateTextInput(this.value);">
+                    </div>    
+                   <div id="valores" style="text-align: left; vertical-align:middle;">
+                        Tu respuesta:         <input type="text" id="textInput" value="" style="border: 0px; width: 50px;" class="values">
+                    </div>
+                </div>
+				
+                <div id="divCuestionariosEdad" class="cuestionarios">
+					<br>
+					Edad:
+					<br>       
+					<input type=number name="edad" min="1">
+                    <br>
+                    <br>
+                    <br>
+                    Género:       
+                    <label class=containerRadios>Hombre
+                        <input type=radio name="gender" value="Hombre" >
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class=containerRadios>Mujer
+                        <input type=radio name="gender" value="Mujer" >
+                        <span class="checkmark"></span>
+                    </label> 
+                    <br><br><br>
+                </div>
+                <div id="divPregInduccion" class="cuestionarios">
+                    <p class="mensaje"> ¡Bienvenido!</p>
+					<p>Antes de nada queremos agradecer tu participación en este experimento, ya que sin la colaboración de personas como tú no sería posible esta investigación. No tienes que identificarte, y los datos que nos aportes se unirán a los del total del grupo y serán analizados estadísticamente. Tu participación es voluntaria y anónima.</p>
+						<ul> 
+                        <li>Intenta realizar esta tarea sin interrupciones ni parar para continuar más tarde.</li> 
+                        <li>Intenta realizar esta tarea en un lugar tranquilo y sin otras pantallas.</li> 
+                        <li>Intenta evitar las distracciones mientras realizas esta tarea.</li> 
+                        </ul> 
+					<p>Si tras haber leído el mensaje deseas continuar, pulsa para dar el consentimiento y pulsa en el botón 'Aceptar y continuar'.</p>
+                    
+                    <label class="containerRadios"> He leído la hoja de consentimiento informado y estoy de acuerdo.
+                        <input type=radio name="induccion1" value="0" >
+                        <span class="checkmark"></span>
+                    </label><br><br>
+                    <!-- <label class="containerRadios">Funciona un poco. -->
+                        <!-- <input type=radio name="induccion1" value="1" > -->
+                        <!-- <span class="checkmark"></span> -->
+                    <!-- </label><br><br> -->
+                    <!-- <label class="containerRadios">No funciona en absoluto. -->
+                        <!-- <input type=radio name="induccion1" value="0" > -->
+                        <!-- <span class="checkmark"></span> -->
+                    <!-- </label><br><br> -->
+                    <!-- <label class="containerRadios">Funciona un poco. -->
+                        <!-- <input type=radio name="induccion1" value="1" > -->
+                        <!-- <span class="checkmark"></span> -->
+                    <!-- </label><br><br> -->
+                    <!-- <label class="containerRadios">Funciona bastante bien. -->
+                        <!-- <input type=radio name="induccion1" value="2" > -->
+                        <!-- <span class="checkmark"></span> -->
+                    <!-- </label><br><br>                 -->
+                    <!-- <label class="containerRadios">Funciona perfectamente. -->
+                        <!-- <input type=radio name="induccion1" value="3" > -->
+                        <!-- <span class="checkmark"></span> -->
+                    <!-- </label><br>                -->
+                    <!-- <p class="mensaje"> -->
+                        <!-- Cuando salga a la venta, ¿cuál crees que sería su precio? -->
+                    <!-- </p> -->
+                    <!-- <label class="containerRadios">Menos de 10 euros. -->
+                        <!-- <input type=radio name="induccion2" value="0" > -->
+                        <!-- <span class="checkmark"></span> -->
+                    <!-- </label><br><br>                      -->
+                    <!-- <label class="containerRadios">Entre 10 euros y 50 euros. -->
+                        <!-- <input type=radio name="induccion2" value="1" > -->
+                        <!-- <span class="checkmark"></span> -->
+                    <!-- </label><br><br>    -->
+                    <!-- <label class="containerRadios">Entre 50 euros y 200 euros. -->
+                        <!-- <input type=radio name="induccion2" value="2" > -->
+                        <!-- <span class="checkmark"></span> -->
+                    <!-- </label><br><br>                                         -->
+                    <!-- <label class="containerRadios">Más de 200 euros. -->
+                        <!-- <input type=radio name="induccion2" value="3" > -->
+                        <!-- <span class="checkmark"></span> -->
+                    <!-- </label><br><br>                        -->
+                </div>
+                
+                
+
+                <div id="divBoton">
+                    
+                </div>                
+            </div>
+
+        </div>
+			
+		
+	</body>
+
+</html>
