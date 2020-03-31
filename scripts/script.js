@@ -939,7 +939,7 @@ function validaInduccion(){
         // (document.querySelector('input[name="induccion1"]:checked')==null) || (document.querySelector('input[name="induccion2"]:checked')==null)
       // ) {
         // alert("Contesta las preguntas, por favor");
-		alert("Acepta el consentimiento para continuar");
+		alert("Para continuar, lee la hoja de información y confirma que estás de acuerdo con las condiciones.");
     
     else{
         PregInduccion = document.querySelector('input[name="induccion1"]').value;
