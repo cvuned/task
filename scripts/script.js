@@ -106,7 +106,7 @@ function arranca(){
     //preloadIMG();
     //GeneraEnsayos();
     
-	firebase.database().ref().on("value", gotData, errData);
+	// firebase.database().ref().on("value", gotData, errData); 	// MODO DEMO SIN CONEXIÓN
 	
 	
 	// Ver IP
@@ -122,7 +122,7 @@ function arranca(){
 	    
 	    // balanceo = data.val().GrupoControlContrabalanceo;		// MODO DEMO SIN CONEXIÓN
 	    // experimental = data.val().GrupoControlExp;				// MODO DEMO SIN CONEXIÓN
-	    
+
 	    //console.log("Experimental: "+experimental+".");			// debug
 	    //console.log("Balanceo: "+balanceo+".");					// debug
 	  
@@ -1003,12 +1003,12 @@ function saveData(){
     
 	if(group == "Experimental"){
 		actualizarGrupo= experimental+1;
-		firebase.database().ref('GrupoControlExp').set(actualizarGrupo);
+		//firebase.database().ref('GrupoControlExp').set(actualizarGrupo);				// MODO DEMO SIN CONEXIÓN
 		//console.log("Un participante al grupo normal")				// debug
 	}
 	else {
 		actualizarGrupo= balanceo+1;
-		firebase.database().ref('GrupoControlContrabalanceo').set(actualizarGrupo);
+		// firebase.database().ref('GrupoControlContrabalanceo').set(actualizarGrupo); 	// MODO DEMO SIN CONEXIÓN
 		//console.log("Un participante al grupo de contrabalanceo")		// debug
 	}
     //console.log(data);      // Debug
@@ -1024,7 +1024,7 @@ function guardaFirebase(){
 	}
     
 	//firebase.database().ref('tallerFEcyt/').push(data);
-    firebase.database().ref('datoscontrol/').push(data);
+    //firebase.database().ref('datoscontrol/').push(data); 								// MODO DEMO SIN CONEXIÓN
 	console.log("¡Datos guardados!");
 }
 
