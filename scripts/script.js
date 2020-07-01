@@ -1025,6 +1025,6 @@ function guardaFirebase(){
     
 	//firebase.database().ref('tallerFEcyt/').push(data);
     //firebase.database().ref('datoscontrol/').push(data); 								// MODO DEMO SIN CONEXIÓN
-	console.log("¡Datos guardados!");
+	console.log("Experimento realizado en modo DEMO. ¡Datos NO guardados!");
 }
 
