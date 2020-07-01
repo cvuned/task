@@ -119,8 +119,10 @@ function arranca(){
 	    //console.log(data.val());									// debug
 	    //console.log("Experimental: "+experimental+".");			// debug
 	    //console.log("Balanceo: "+balanceo+".");					// debug
-	    balanceo = data.val().GrupoControlContrabalanceo;
-	    experimental = data.val().GrupoControlExp;
+	    
+	    // balanceo = data.val().GrupoControlContrabalanceo;		// MODO DEMO SIN CONEXIÓN
+	    // experimental = data.val().GrupoControlExp;				// MODO DEMO SIN CONEXIÓN
+	    
 	    //console.log("Experimental: "+experimental+".");			// debug
 	    //console.log("Balanceo: "+balanceo+".");					// debug
 	  
